@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Museum controller.
+ */
 @Controller
 @RequestMapping("/museums")
 public class MuseumController {
@@ -21,6 +24,9 @@ public class MuseumController {
     this.museumService = museumService;
   }
 
+  /**
+   * Create a museum.
+   */
   @PostMapping
   public ResponseEntity<Museum> createMuseum(@RequestBody Museum museum) {
     Museum newMuseum = this.museumService.createMuseum(museum);
