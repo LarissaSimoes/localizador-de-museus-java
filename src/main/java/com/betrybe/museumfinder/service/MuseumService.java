@@ -25,12 +25,12 @@ public class MuseumService implements MuseumServiceInterface {
   @Override
   public Museum getClosestMuseum(Coordinate coordinate, Double maxDistance) {
     if (!CoordinateUtil.isCoordinateValid(coordinate)) {
-      throw new InvalidCoordinateException("Invalid coordinates provided.");
+      throw new InvalidCoordinateException();
     }
     Optional<Museum> closestMuseum = museumFakeDatabase.getClosestMuseum(coordinate, maxDistance);
     
     if (closestMuseum.isEmpty()) {
-      throw new MuseumNotFoundException("No museum found for the provided coordinates.");
+      throw new MuseumNotFoundException();
     }
     return closestMuseum.get();
   }
@@ -38,7 +38,7 @@ public class MuseumService implements MuseumServiceInterface {
   @Override
   public Museum createMuseum(Museum museum) {
     if (!CoordinateUtil.isCoordinateValid(museum.getCoordinate())) {
-      throw new InvalidCoordinateException("Invalid coordinates provided for the museum.");
+      throw new InvalidCoordinateException();
     }
     return museumFakeDatabase.saveMuseum(museum);
   }

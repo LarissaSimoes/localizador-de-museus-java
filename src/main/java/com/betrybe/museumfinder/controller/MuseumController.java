@@ -55,6 +55,4 @@ public class MuseumController {
     return new ResponseEntity<>(museum, HttpStatus.OK);
   }
 
-
-
 }
